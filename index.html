@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>澳門遊戲</title>
-    <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
     <div class="genshin-logo-decoration">
@@ -310,9 +309,7 @@
         <p>© 2024 原神澳門特別企劃</p>
     </footer>
 
-    <!-- 把外部CSS移到這裡 -->
     <style>
-        /* 把 main.css 的內容複製到這裡 */
         :root {
             --primary-color: #FFB84D;
             --secondary-color: #4D79FF;
@@ -329,19 +326,251 @@
             line-height: 1.6;
         }
 
-        /* ... 把其餘的 CSS 代碼貼到這裡 ... */
+        .site-header {
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .main-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+                        url('https://upload-os-bbs.mihoyo.com/upload/2021/01/29/83501730/c1f7d7d8f5a1b0d5f5e7b2e2d2d2d2d2.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            padding-top: 60px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .landmarks {
+            padding: 4rem 2rem;
+            background: white;
+        }
+
+        .intro-text {
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            text-align: center;
+        }
+
+        .intro-quote {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .landmark-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .landmark-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            padding: 1rem;
+        }
+
+        .vertical-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .landmark-card h3 {
+            padding: 1rem;
+            margin: 0;
+            color: var(--text-color);
+        }
+
+        .landmark-card p {
+            padding: 0 1rem 1rem;
+            margin: 0;
+            color: #666;
+        }
+
+        .gallery {
+            padding: 4rem 2rem;
+            background: var(--background-color);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: white;
+            padding: 1rem;
+            transform: translateY(100%);
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover .gallery-caption {
+            transform: translateY(0);
+        }
+
+        .character-intro {
+            background: rgba(255,255,255,0.9);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem auto;
+            max-width: 800px;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .character-image img {
+            width: 150px;
+            height: 150px;
+            object-fit: contain;
+        }
+
+        .character-dialog {
+            flex: 1;
+            font-style: italic;
+            color: #666;
+        }
+
+        .genshin-logo-decoration {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            width: 120px;
+            height: 120px;
+            z-index: 999;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .landmark-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .character-intro {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .genshin-logo-decoration {
+                width: 80px;
+                height: 80px;
+            }
+        }
     </style>
 
-    <!-- 把外部JavaScript移到這裡 -->
     <script>
-        // 把 main.js 的內容複製到這裡
         document.addEventListener('DOMContentLoaded', function() {
             const startQuestBtn = document.querySelector('.start-quest');
             const questModal = document.getElementById('questModal');
             // ... 其餘的 main.js 代碼 ...
         });
 
-        // 把 game.js 的內容複製到這裡
         function exploreLocation(locationId) {
             const locationInfo = {
                 'ruins-of-st-pauls': {
